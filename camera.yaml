@@ -53,7 +53,7 @@ views:
                 entity_id: camera.hikvision_ds_2de4225iw_de_mainstream
                 tilt: DOWN
                 speed: 1
-                distance: 0.3
+                distance: 0.5
                 move_mode: ContinuousMove
             name: Tilt Down
             icon: mdi:arrow-down
