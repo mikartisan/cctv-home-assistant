@@ -1,0 +1,121 @@
+views:
+  - title: Home
+    path: home
+    cards:
+      - type: picture-glance
+        entities:
+          - entity: camera.hikvision_ds_2de4225iw_de_mainstream
+            tap_action:
+              action: call-service
+              service: onvif.ptz
+              service_data:
+                entity_id: camera.hikvision_ds_2de4225iw_de_mainstream
+                pan: LEFT
+                speed: 1
+                distance: 0.5
+                move_mode: ContinuousMove
+            name: Pan Left
+            show_state: false
+            icon: mdi:arrow-left
+            show_icon: true
+          - entity: camera.hikvision_ds_2de4225iw_de_mainstream
+            tap_action:
+              action: call-service
+              service: onvif.ptz
+              service_data:
+                entity_id: camera.hikvision_ds_2de4225iw_de_mainstream
+                pan: RIGHT
+                speed: 1
+                distance: 0.5
+                move_mode: ContinuousMove
+            name: Pan Right
+            show_state: false
+            icon: mdi:arrow-right
+            show_icon: true
+          - entity: camera.hikvision_ds_2de4225iw_de_mainstream
+            tap_action:
+              action: call-service
+              service: onvif.ptz
+              service_data:
+                entity_id: camera.hikvision_ds_2de4225iw_de_mainstream
+                tilt: UP
+                speed: 1
+                distance: 0.5
+                move_mode: ContinuousMove
+            name: Tilt Up
+            icon: mdi:arrow-up
+            show_icon: true
+          - entity: camera.hikvision_ds_2de4225iw_de_mainstream
+            tap_action:
+              action: call-service
+              service: onvif.ptz
+              service_data:
+                entity_id: camera.hikvision_ds_2de4225iw_de_mainstream
+                tilt: DOWN
+                speed: 1
+                distance: 0.3
+                move_mode: ContinuousMove
+            name: Tilt Down
+            icon: mdi:arrow-down
+            show_icon: true
+          - entity: camera.hikvision_ds_2de4225iw_de_mainstream
+            tap_action:
+              action: call-service
+              service: onvif.ptz
+              service_data:
+                entity_id: camera.hikvision_ds_2de4225iw_de_mainstream
+                zoom: ZOOM_IN
+                speed: 1
+            name: Zoom In
+            show_state: false
+            icon: mdi:magnify-plus
+            show_icon: true
+          - entity: camera.hikvision_ds_2de4225iw_de_mainstream
+            tap_action:
+              action: call-service
+              service: onvif.ptz
+              service_data:
+                entity_id: camera.hikvision_ds_2de4225iw_de_mainstream
+                zoom: ZOOM_OUT
+                speed: 1
+            name: Zoom Out
+            show_state: false
+            icon: mdi:magnify-minus
+            show_icon: true
+        camera_image: camera.hikvision_ds_2de4225iw_de_mainstream
+        camera_view: live
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: scene.home_reverse
+            name: Forward
+            icon_height: 30px
+            hold_action:
+              action: none
+            icon: mdi:arrow-left
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: scene.stop
+            hold_action:
+              action: none
+            icon: mdi:stop
+            name: Stop
+            icon_height: 30px
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            icon_height: 30px
+            hold_action:
+              action: none
+            icon: mdi:arrow-right
+            name: Backward
+            entity: scene.away_forward
