@@ -1,5 +1,5 @@
 views:
-  - title: Home
+  - title: CPF Magalang Farm
     path: home
     cards:
       - type: picture-glance
@@ -119,3 +119,45 @@ views:
             icon: mdi:arrow-right
             name: Backward
             entity: scene.away_forward
+      - type: picture-glance
+        entities:
+          - entity: camera.ids_2cd7a46g0_izhs20220812aawrk42481265_102
+            tap_action:
+              action: call-service
+              service: onvif.ptz
+              service_data:
+                entity_id: camera.ids_2cd7a46g0_izhs20220812aawrk42481265_102
+                zoom: ZOOM_IN
+                speed: 1
+            name: Zoom In
+            show_state: false
+            icon: mdi:magnify-plus
+            show_icon: true
+          - entity: camera.ids_2cd7a46g0_izhs20220812aawrk42481265_102
+            tap_action:
+              action: call-service
+              service: onvif.ptz
+              service_data:
+                entity_id: camera.ids_2cd7a46g0_izhs20220812aawrk42481265_102
+                zoom: ZOOM_OUT
+                speed: 1
+            name: Zoom Out
+            show_state: false
+            icon: mdi:magnify-minus
+            show_icon: true
+        camera_image: camera.ids_2cd7a46g0_izhs20220812aawrk42481265_102
+        camera_view: live
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.temperature_and_humidity_alarm_magalang_humidity
+                name: Humidity @ G4 Bldg.
+              - entity: sensor.temperature_and_humidity_alarm_magalang_temperature
+                name: Temperature @ G4 Bldg.
+            state_color: true
+      - show_current: true
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.forecast_home
+        forecast_type: hourly
