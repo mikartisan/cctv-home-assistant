@@ -97,6 +97,7 @@ views:
             hold_action:
               action: none
             icon: mdi:arrow-left
+            show_state: false
           - show_name: true
             show_icon: true
             type: button
@@ -119,6 +120,12 @@ views:
             icon: mdi:arrow-right
             name: Backward
             entity: scene.away_forward
+            show_state: false
+            card_mod:
+              style: |
+                ha-card {
+                  background-color: {% if is_state('binary_sensor.scene_away_forward_activated', 'on') %} teal {% else %} white {% endif %};
+                }
       - type: picture-glance
         entities:
           - entity: camera.ids_2cd7a46g0_izhs20220812aawrk42481265_102
